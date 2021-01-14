@@ -1,4 +1,4 @@
-﻿namespace JokeSvc.Controllers
+﻿namespace SharedLibrary
 {
     public class Joke
     {

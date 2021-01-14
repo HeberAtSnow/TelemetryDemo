@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{141A2035-E81B-4A8C-9EE6-6B1E94396844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csproj", "{141A2035-E81B-4A8C-9EE6-6B1E94396844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeSvc", "JokeSvc\JokeSvc.csproj", "{15AC8029-027F-45FF-9DDA-86A5FA3F4C90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JokeSvc", "JokeSvc\JokeSvc.csproj", "{15AC8029-027F-45FF-9DDA-86A5FA3F4C90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonSvc", "PersonSvc\PersonSvc.csproj", "{657F7931-047D-44BF-840B-AEF4ED73148F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonSvc", "PersonSvc\PersonSvc.csproj", "{657F7931-047D-44BF-840B-AEF4ED73148F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSvc", "BookSvc\BookSvc.csproj", "{6C63DBC8-F3F3-470B-AE84-C47A22F8C3F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSvc", "BookSvc\BookSvc.csproj", "{6C63DBC8-F3F3-470B-AE84-C47A22F8C3F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{141A2035-E81B-4A8C-9EE6-6B1E94396844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +71,23 @@ Global
 		{6C63DBC8-F3F3-470B-AE84-C47A22F8C3F0}.Release|x64.Build.0 = Release|Any CPU
 		{6C63DBC8-F3F3-470B-AE84-C47A22F8C3F0}.Release|x86.ActiveCfg = Release|Any CPU
 		{6C63DBC8-F3F3-470B-AE84-C47A22F8C3F0}.Release|x86.Build.0 = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|x64.Build.0 = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Debug|x86.Build.0 = Debug|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|x64.ActiveCfg = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|x64.Build.0 = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|x86.ActiveCfg = Release|Any CPU
+		{3BE0E04A-0407-4E75-8C89-1BCCED17C65E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7B842DA-266C-48D5-9974-2FE05EAF15C2}
 	EndGlobalSection
 EndGlobal
