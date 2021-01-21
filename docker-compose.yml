@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: BookSvc/Dockerfile
+    volumes:
+      - log-volume:/logs
 
   facade:
     image: ${DOCKER_REGISTRY-}facade
@@ -15,21 +17,24 @@ services:
     environment:
       - PERSON_SERVICE=http://personsvc
       - JOKE_SERVICE=http://jokesvc
-
+    volumes:
+      - log-volume:/logs
 
   jokesvc:
     image: ${DOCKER_REGISTRY-}jokesvc
     build:
       context: .
       dockerfile: JokeSvc/Dockerfile
-
+    volumes:
+      - log-volume:/logs
 
   personsvc:
     image: ${DOCKER_REGISTRY-}personsvc
     build:
       context: .
       dockerfile: PersonSvc/Dockerfile
-
+    volumes:
+      - log-volume:/logs
 
   playgroundwebfrontend:
     image: ${DOCKER_REGISTRY-}playgroundwebfrontend
@@ -40,10 +45,19 @@ services:
         - 5000:80
     environment:
         - FacadeService=http://facade
+    volumes:
+      - log-volume:/logs
 
   logdb:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
+      - PGDATA=/var/lib/postgresql/data
     volumes:
+      - log-volume:/logs 
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pg-data:/var/lib/postgresql/data
+
+volumes:
+    log-volume:
+    pg-data:
