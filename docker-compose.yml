@@ -40,3 +40,10 @@ services:
         - 5000:80
     environment:
         - FacadeService=http://facade
+
+  logdb:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

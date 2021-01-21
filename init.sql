@@ -1,0 +1,1 @@
+create table SinkTarget1 (id serial primary key, keyvalue text, description text);
