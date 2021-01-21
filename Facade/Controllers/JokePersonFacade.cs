@@ -34,10 +34,5 @@ namespace Facade.Controllers
             }; 
         }
     }
-    public class PersonJoke
-    {
-        public int ID { get;  set; }
-        public string JokeText { get;  set; }
-        public Person Person { get;  set; }
-    }
+
 }
