@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  booksvc:
+    image: ${DOCKER_REGISTRY-}booksvc
+    build:
+      context: .
+      dockerfile: BookSvc/Dockerfile
+
+  facade:
+    image: ${DOCKER_REGISTRY-}facade
+    build:
+      context: .
+      dockerfile: Facade/Dockerfile
+    environment:
+      - PERSON_SERVICE=http://personsvc
+      - JOKE_SERVICE=http://jokesvc
+
+
+  jokesvc:
+    image: ${DOCKER_REGISTRY-}jokesvc
+    build:
+      context: .
+      dockerfile: JokeSvc/Dockerfile
+
+
+  personsvc:
+    image: ${DOCKER_REGISTRY-}personsvc
+    build:
+      context: .
+      dockerfile: PersonSvc/Dockerfile
+
+
+  playgroundwebfrontend:
+    image: ${DOCKER_REGISTRY-}playgroundwebfrontend
+    build:
+      context: .
+      dockerfile: PlaygroundWebFrontend/Dockerfile
+    ports:
+        - 5000:80
+    environment:
+        - FacadeService=http://facade
