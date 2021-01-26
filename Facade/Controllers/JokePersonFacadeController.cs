@@ -31,6 +31,8 @@ namespace Facade.Controllers
             var person = await httpClient.GetFromJsonAsync<Person>($"{configuration["PERSON_SERVICE"]}/person/{id}");
             logger.LogInformation("Facade Called Get on Joke and Get on person {id} {result}", id, person);
             logger.LogError("WhyNotInDB?");
+            logger.LogWarning("Its a warning!");
+            logger.LogDebug("I called the exterminator - he'll be back!");
             return new PersonJoke
             {
                 ID = id,
