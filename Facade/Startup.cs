@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace Facade
 {
@@ -43,6 +44,9 @@ namespace Facade
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Facade v1"));
             }
+
+            app.UseSerilogRequestLogging();
+
 
            // app.UseHttpsRedirection();
 

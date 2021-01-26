@@ -17,8 +17,14 @@ services:
     environment:
       - PERSON_SERVICE=http://personsvc
       - JOKE_SERVICE=http://jokesvc
+      - db_connectionstring=host=logdb; database=postgres; user id=postgres; password=mysecretpassword;  #TODO: future enhancement - move to secrets file
     volumes:
       - log-volume:/logs
+    depends_on:
+      - logdb
+    ports:
+        - 5009:80
+
 
   jokesvc:
     image: ${DOCKER_REGISTRY-}jokesvc
@@ -27,6 +33,8 @@ services:
       dockerfile: JokeSvc/Dockerfile
     volumes:
       - log-volume:/logs
+    depends_on:
+      - logdb
 
   personsvc:
     image: ${DOCKER_REGISTRY-}personsvc
@@ -35,6 +43,8 @@ services:
       dockerfile: PersonSvc/Dockerfile
     volumes:
       - log-volume:/logs
+    depends_on:
+      - logdb
 
   playgroundwebfrontend:
     image: ${DOCKER_REGISTRY-}playgroundwebfrontend
@@ -47,11 +57,13 @@ services:
         - FacadeService=http://facade
     volumes:
       - log-volume:/logs
+    depends_on:
+      - logdb
 
   logdb:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_PASSWORD=mysecretpassword  #TODO: - move to secrets file
       - PGDATA=/var/lib/postgresql/data
     volumes:
       - log-volume:/logs 
