@@ -45,8 +45,8 @@ namespace Facade
                 .UseSerilog((hostingContext, services, loggerConfiguration) => loggerConfiguration
                     .ReadFrom.Configuration(hostingContext.Configuration)
                     //.Enrich.FromLogContext()
-                    //.WriteTo.File("/logs/Facade.log")
-                    //.WriteTo.PostgreSQL(hostingContext.Configuration["db_connectionstring"], "st_facade", batchSizeLimit: 1, needAutoCreateTable: true)
+                    .WriteTo.File("/logs/Facade.log")
+                    .WriteTo.PostgreSQL(hostingContext.Configuration["db_connectionstring"], "st_facade", batchSizeLimit: 1, needAutoCreateTable: true)
                     
                     )
                 .ConfigureWebHostDefaults(webBuilder =>
