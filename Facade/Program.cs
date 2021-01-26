@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Core;
 using Serilog.Events;
 
 namespace Facade
@@ -53,5 +54,39 @@ namespace Facade
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+    }
+    // The filter syntax in the sample configuration file is
+    // processed by the Serilog.Filters.Expressions package.
+    public class CustomFilter : ILogEventFilter
+    {
+        public bool IsEnabled(LogEvent logEvent)
+        {
+            return true;
+        }
+    }
+
+    public class LoginData
+    {
+        public string Username;
+        public string Password;
+    }
+
+    public class CustomPolicy : IDestructuringPolicy
+    {
+        public bool TryDestructure(object value, ILogEventPropertyValueFactory propertyValueFactory, out LogEventPropertyValue result)
+        {
+            result = null;
+
+            if (value is LoginData)
+            {
+                result = new StructureValue(
+                    new List<LogEventProperty>
+                    {
+                        new LogEventProperty("Username", new ScalarValue(((LoginData)value).Username))
+                    });
+            }
+
+            return (result != null);
+        }
     }
 }
