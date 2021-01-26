@@ -46,7 +46,7 @@ namespace Facade
                     .ReadFrom.Configuration(hostingContext.Configuration)
                     .Enrich.FromLogContext()
                     .WriteTo.File("/logs/Facade.log")
-                    .WriteTo.PostgreSQL(hostingContext.Configuration["db_connectionstring"], "st_facade", needAutoCreateTable: true)
+                    .WriteTo.PostgreSQL(hostingContext.Configuration["db_connectionstring"], "st_facade", batchSizeLimit: 1, needAutoCreateTable: true)
                     )
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
